@@ -15,7 +15,7 @@ public class UserDaoImp implements UserDao {
    private SessionFactory sessionFactory;
 
    @Override
-   public void add(User user) {
+   public void addUser(User user) {
       sessionFactory.getCurrentSession().save(user);
    }
 
@@ -24,5 +24,12 @@ public class UserDaoImp implements UserDao {
       TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("from User", User.class);
       return query.getResultList();
    }
+
+   @Override
+   public List<User> getUserByCarSeriesAndModel() {
+      TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("SELECT User.id from Car where model = ", User.class);
+      return query.getResultList();
+   }
+
 
 }
