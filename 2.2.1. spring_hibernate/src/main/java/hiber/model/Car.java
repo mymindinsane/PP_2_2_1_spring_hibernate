@@ -1,6 +1,7 @@
 package hiber.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+
 
 
 import javax.persistence.*;
@@ -54,5 +55,15 @@ public class Car {
 
     public void setSeries(int series) {
         this.series = series;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", series=" + series +
+                '}';
     }
 }
